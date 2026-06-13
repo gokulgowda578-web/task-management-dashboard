@@ -1,141 +1,180 @@
-# TaskFlow — Task Management Dashboard
+TASKFLOW – TASK MANAGEMENT DASHBOARD
 
-A full-stack task management web application inspired by Trello, Asana, and Jira. Built with React, Node.js, Express, and MySQL. Includes JWT authentication, project & task CRUD, a drag-and-drop Kanban board, dashboard analytics with Chart.js, filtering/search, and full dark mode support.
+TaskFlow is a full-stack task management web application inspired by tools such as Trello, Asana, and Jira.
+It is built using the MERN stack and focuses on clean UI, smooth workflows, and useful productivity insights.
 
-![Tech](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
-![Tech](https://img.shields.io/badge/Node.js-Express-339933?logo=node.js&logoColor=white)
-![Tech](https://img.shields.io/badge/MySQL-database-4479A1?logo=mysql&logoColor=white)
-![Tech](https://img.shields.io/badge/Tailwind-CSS-38B2AC?logo=tailwindcss&logoColor=white)
+The application supports secure authentication, project and task management, a drag-and-drop Kanban board, dashboard analytics, and dark mode.
 
-## ✨ Features
+FEATURES
 
-- **Authentication** — Register, login, JWT-based sessions, bcrypt password hashing
-- **Dashboard** — Stat cards (total/pending/in-progress/completed), task status doughnut chart, 7-day productivity line chart, recent tasks
-- **Tasks** — Create, edit, delete, mark complete, filter by status/priority, search by title/description
-- **Kanban Board** — Drag-and-drop tasks between Todo / In Progress / Completed columns
-- **Projects** — Create/update/delete projects, view task count & completion percentage per project
-- **Profile** — View account details, join date, and personal task statistics
-- **UI/UX** — Responsive layout, sticky sidebar, dark mode toggle, soft shadows, rounded cards, smooth hover transitions, Inter font
+AUTHENTICATION
+• User registration and login
+• JWT-based authentication
+• Secure password hashing using bcrypt
+• Protected API routes
 
-## 🏗️ Tech Stack
+DASHBOARD
+• Summary cards for total, pending, in-progress, and completed tasks
+• Task status doughnut chart
+• 7-day productivity line chart
+• Recently updated tasks
 
-| Layer | Technology |
-|---|---|
-| Frontend | React, React Router DOM, Axios, Tailwind CSS, Chart.js (react-chartjs-2), Vite |
-| Backend | Node.js, Express.js, MVC architecture |
-| Database | MongoDB (Mongoose) |
-| Auth | JWT, bcryptjs |
+TASK MANAGEMENT
+• Create, update, and delete tasks
+• Mark tasks as completed
+• Filter by status and priority
+• Search by title or description
 
-## 📁 Project Structure
+KANBAN BOARD
+• Drag and drop tasks between:
+– Todo
+– In Progress
+– Completed
 
-```
+PROJECTS
+• Create, edit, and delete projects
+• Task count per project
+• Automatic completion percentage calculation
+
+USER PROFILE
+• View account details
+• Join date
+• Personal task statistics
+
+UI / UX
+• Fully responsive layout
+• Sticky sidebar navigation
+• Dark mode toggle (persisted)
+• Smooth transitions and clean card layout
+
+TECH STACK
+
+Frontend
+• React
+• React Router DOM
+• Axios
+• Tailwind CSS
+• Chart.js (react-chartjs-2)
+• Vite
+
+Backend
+• Node.js
+• Express.js (MVC architecture)
+
+Database
+• MongoDB with Mongoose
+
+Authentication
+• JSON Web Tokens (JWT)
+• bcryptjs
+
+PROJECT STRUCTURE
+
 task-management-dashboard/
 ├── frontend/
-│   ├── src/
-│   │   ├── components/   # Layout, TaskModal, ProjectModal
-│   │   ├── pages/         # Login, Register, Dashboard, Tasks, Projects, Kanban, Profile
-│   │   ├── services/       # api.js (axios instance + endpoints)
-│   │   ├── context/        # AuthContext, ThemeContext
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   └── package.json
+│ ├── src/
+│ │ ├── components/
+│ │ ├── pages/
+│ │ ├── services/
+│ │ ├── context/
+│ │ ├── App.jsx
+│ │ └── main.jsx
+│ └── package.json
 ├── backend/
-│   ├── config/db.js          # Mongoose connection
-│   ├── models/                # User, Project, Task schemas
-│   ├── controllers/           # authController, taskController, projectController
-│   ├── routes/                  # authRoutes, taskRoutes, projectRoutes
-│   ├── middleware/              # auth, validation, errorHandler
-│   ├── seed/seed.js             # sample data seeder
-│   ├── server.js
-│   └── package.json
-└── README.md
-```
+│ ├── config/db.js
+│ ├── models/
+│ ├── controllers/
+│ ├── routes/
+│ ├── middleware/
+│ ├── seed/seed.js
+│ ├── server.js
+│ └── package.json
+├── README.md
+└── DEPLOYMENT.md
 
-## 🚀 Getting Started (Local Development)
+LOCAL SETUP
 
-### Prerequisites
+PREREQUISITES
+• Node.js 18+
+• MongoDB 6+ (local or MongoDB Atlas)
 
-- Node.js 18+
-- MongoDB 6+ (local install, or a free cluster on [MongoDB Atlas](https://www.mongodb.com/atlas))
+BACKEND SETUP
 
-### 1. Backend setup
-
-```bash
 cd backend
 cp .env.example .env
-# edit .env — set MONGO_URI (e.g. mongodb://localhost:27017/taskmanager
-#              or your Atlas connection string) and a strong JWT_SECRET
+
+Set the following in .env:
+• MONGO_URI
+• JWT_SECRET
+
 npm install
-npm run dev      # starts on http://localhost:5000
-```
+npm run dev
 
-### 2. Seed sample data (optional)
+Backend runs on: http://localhost:5000
 
-```bash
+SEED SAMPLE DATA (OPTIONAL)
+
 npm run seed
-```
 
-This clears and populates the database with 2 demo users, 4 projects, and 12 tasks.
+Demo Login
+Email: alex@example.com
+Password: password123
 
-> Demo login: `alex@example.com` / `password123` (or just register a fresh account).
+FRONTEND SETUP
 
-### 3. Frontend setup
-
-```bash
 cd frontend
 cp .env.example .env
-# VITE_API_URL=http://localhost:5000/api
+
+Set:
+VITE_API_URL=http://localhost:5000/api
+
 npm install
-npm run dev       # starts on http://localhost:5173
-```
+npm run dev
 
-Open `http://localhost:5173` in your browser, register a new account, and start managing tasks!
+Frontend runs on: http://localhost:5173
 
-## 🔌 API Reference
+API OVERVIEW
 
-All `/api/tasks` and `/api/projects` routes require an `Authorization: Bearer <token>` header.
+All task and project routes require:
+Authorization: Bearer <token>
 
-### Auth
+AUTH ROUTES
+POST /api/auth/register – Register user
+POST /api/auth/login – Login user
+GET /api/auth/profile – Get user profile
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/api/auth/register` | Register a new user (`name`, `email`, `password`) |
-| POST | `/api/auth/login` | Login (`email`, `password`) → returns JWT + user |
-| GET | `/api/auth/profile` | Get current user profile + task stats |
+TASK ROUTES
+GET /api/tasks
+GET /api/tasks/stats
+GET /api/tasks/:id
+POST /api/tasks
+PUT /api/tasks/:id
+DELETE /api/tasks/:id
 
-### Tasks
+PROJECT ROUTES
+GET /api/projects
+POST /api/projects
+PUT /api/projects/:id
+DELETE /api/projects/:id
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/api/tasks` | List tasks (supports `?status=&priority=&search=&sort=&order=`) |
-| GET | `/api/tasks/stats` | Dashboard stats: totals by status, recent tasks, 7-day chart data |
-| GET | `/api/tasks/:id` | Get single task |
-| POST | `/api/tasks` | Create task (`title`, `description`, `priority`, `status`, `due_date`, `project_id`) |
-| PUT | `/api/tasks/:id` | Update task |
-| DELETE | `/api/tasks/:id` | Delete task |
+DESIGN
 
-### Projects
+Primary Color: #4F46E5
+Secondary Color: #6366F1
+Success: #22C55E
+Warning: #F59E0B
+Danger: #EF4444
+Font: Inter
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/api/projects` | List projects with task count & completion % |
-| POST | `/api/projects` | Create project (`project_name`, `description`) |
-| PUT | `/api/projects/:id` | Update project |
-| DELETE | `/api/projects/:id` | Delete project |
+DEPLOYMENT
 
-## 🎨 Design
+See DEPLOYMENT.md for full deployment steps.
 
-- **Primary:** `#4F46E5` · **Secondary:** `#6366F1` · **Success:** `#22C55E` · **Warning:** `#F59E0B` · **Danger:** `#EF4444`
-- **Font:** Inter
-- Light & dark themes via Tailwind's `class` strategy, toggle persisted in `localStorage`
+Frontend: Vercel
+Backend: Render
+Database: MongoDB Atlas
 
-## 📦 Deployment
+LICENSE
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for step-by-step instructions to deploy:
-- Frontend → Vercel
-- Backend → Render
-- Database → MongoDB Atlas
-
-## 📄 License
-
-MIT — free to use for portfolio, learning, and internship submissions.
+MIT License
+Free to use for learning, portfolio projects, and internship submissions.
