@@ -76,7 +76,7 @@ This guide walks through deploying TaskFlow with:
 
 ---
 
-## ✅ Verification Checklist
+##Verification Checklist
 
 - [ ] `https://<backend>/api/health` returns success
 - [ ] Register a new account from the live frontend
