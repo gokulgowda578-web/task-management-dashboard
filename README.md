@@ -41,7 +41,7 @@ USER PROFILE
 • Join date
 • Personal task statistics
 
-UI / UX
+UI/UX
 • Fully responsive layout
 • Sticky sidebar navigation
 • Dark mode toggle (persisted)
